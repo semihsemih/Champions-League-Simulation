@@ -19,14 +19,3 @@ use App\Models\Game;
 Route::get('/', function () {
     return view('welcome');
 });
-
-
-
-Route::get('/selam', function () {
-    dd(Team::find(1)->awayMatches);
-});
-Route::get('/selam2',  [LeagueController::class, 'initFixture']);
-Route::get('/selam3',  function() {
-    $games = Game::with('homeTeam', 'awayTeam')->get();
-    dump($games);
-});
